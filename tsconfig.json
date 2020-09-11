@@ -7,7 +7,7 @@
       "DOM",
       "ES2019"
     ],
-    "module": "commonjs",
+    "module": "ES2020",
     "outDir": "./dist/",
     "strict": true,
     "target": "es5"
