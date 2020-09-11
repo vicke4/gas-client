@@ -2,16 +2,16 @@
   "name": "@guilhermetod/gas-client",
   "version": "0.1.0",
   "description": "A client-side utility class that can call server-side Google Apps Script functions",
-  "main": "build/index.js",
+  "main": "dist/index.js",
   "files": [
-    "build"
+    "dist"
   ],
   "repository": "https://github.com/guilhermetod/gas-client.git",
   "author": "Guilherme Tod <guilhermetod@gmail.com> (https://github.com/guilhermetod)",
   "license": "MIT",
   "scripts": {
     "prepack": "yarn build",
-    "build": "rm -rf build && tsc"
+    "build": "rm -rf dist && tsc"
   },
   "bugs": {
     "url": "https://github.com/guilhermetod/gas-client/issues"
