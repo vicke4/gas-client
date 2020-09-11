@@ -1,6 +1,6 @@
 import { ignoredFunctionNames } from '../utils/ignored-function-names';
 import { promisify } from '../utils/promisify';
-import { FunctionHost } from '../classes/function-host';
+import { FunctionHost } from './function-host';
 import { FunctionMap, ServerFunctions } from '../types/functions';
 
 class GASPromises<FM extends FunctionMap> extends FunctionHost<FM> {
@@ -10,16 +10,16 @@ class GASPromises<FM extends FunctionMap> extends FunctionHost<FM> {
   }
 
   private promisifyGASFunctions(): void {
-    this._serverFunctions = Object.keys(google.script.run).reduce(
-      (acc, functionName) =>
+    this._serverFunctions = Object
+      .keys(google.script.run)
+      .reduce((acc, functionName) => (
         ignoredFunctionNames.includes(functionName)
           ? acc
           : {
-              ...acc,
-              [functionName]: promisify(functionName),
-            },
-      {}
-    ) as ServerFunctions<FM>;
+            ...acc,
+            [functionName]: promisify(functionName),
+          }
+      ), {}) as ServerFunctions<FM>;
   }
 }
 

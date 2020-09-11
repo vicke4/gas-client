@@ -8,6 +8,7 @@ const proxyHandler = (target: unknown, functionName: string): ((...args: unknown
   const promise = new Promise((resolve, reject) => {
     window.gasStore[id] = { resolve, reject };
   });
+
   return (...args: unknown[]) => {
     window.parent.postMessage(
       {
@@ -16,7 +17,7 @@ const proxyHandler = (target: unknown, functionName: string): ((...args: unknown
         functionName,
         args: [...args],
       },
-      window.location.origin
+      window.location.origin,
     );
     return promise;
   };
