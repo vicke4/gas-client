@@ -1,10 +1,9 @@
-type GASStore = Record<
-  string,
-  {
+interface GASStore {
+  [key: string]: {
     resolve: (value?: unknown) => void;
     reject: (reason?: unknown) => void;
   }
->;
+}
 
 interface GasFunctionData {
   id: string;
