@@ -1,10 +1,10 @@
-import { v4 as uuidv4 } from 'uuid';
+import { v4 } from 'uuid';
 import { AppWindow } from '../types/dev-server';
 
 declare const window: AppWindow;
 
 const proxyHandler = (target: unknown, functionName: string): ((...args: unknown[]) => Promise<unknown>) => {
-  const id = uuidv4();
+  const id = v4();
   const promise = new Promise((resolve, reject) => {
     window.gasStore[id] = { resolve, reject };
   });
