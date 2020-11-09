@@ -11,7 +11,7 @@
   "license": "MIT",
   "scripts": {
     "prepack": "yarn build",
-    "build": "rm -rf dist && tsc"
+    "build": "rm -rf dist && npm i && tsc"
   },
   "bugs": {
     "url": "https://github.com/guilhermetod/gas-client/issues"
